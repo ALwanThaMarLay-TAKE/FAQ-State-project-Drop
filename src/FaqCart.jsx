@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { IoHandLeftSharp } from "react-icons/io5";
 
-const FaqCart = ({ question, answer }) => {
-  const [open, setOpen] = useState(false);
-  const toggleOpen = () => {
-    setOpen(!open);
-  };
+const FaqCart = ({ question, answer,id ,isOpen,toggleData }) => {
+ 
 
   return (
     <div>
       <button
-        onClick={toggleOpen}
+        onClick={() => {
+
+          toggleData(id)        }
+        }
         className="border active:bg-gray-200 select-none bg-white relative z-10 p-4 rounded w-full items-center  border-black flex justify-between"
       >
         <h1 className="text-3xl ">{question}</h1>
@@ -18,7 +18,7 @@ const FaqCart = ({ question, answer }) => {
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill="currentColor"
-          className={`size-10 ${open && "rotate-180"} duration-700 `}
+          className={`size-10 ${isOpen && "rotate-180"} duration-700 `}
         >
           <path
             fillRule="evenodd"
@@ -27,7 +27,7 @@ const FaqCart = ({ question, answer }) => {
           />
         </svg>
       </button>
-      <p className={` bg-blue-300 p-3 ${ !open ? "-translate-y-full absolute opacity-0 w-0 h-0" : "translate-x-0"}  duration-300 `}>{answer}</p>
+      <p className={` bg-blue-300 p-3 ${ !isOpen ? "-translate-y-full absolute opacity-0 w-0 h-0" : "translate-x-0"}  duration-300 `}>{answer}</p>
     </div>
   );
 };
