@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { IoHandLeftSharp } from "react-icons/io5";
+import useFAQ from "./store/useFAQ";
 
-const FaqCart = ({ question, answer,id ,isOpen,toggleData }) => {
+const FaqCart = ({ question, answer,id ,isOpen }) => {
+  const {toggleData} = useFAQ()
  
 
   return (
